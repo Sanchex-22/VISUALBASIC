@@ -46,11 +46,18 @@ Partial Class Form1
         Label2 = New Label()
         btnBorrarTodo = New Button()
         txtUserResult = New TextBox()
+        Button9 = New Button()
+        Label3 = New Label()
+        btnResolver = New Button()
+        Label4 = New Label()
+        txtContador = New TextBox()
+        Label5 = New Label()
+        Label6 = New Label()
         SuspendLayout()
         ' 
         ' btn_Generar
         ' 
-        btn_Generar.Location = New Point(466, 54)
+        btn_Generar.Location = New Point(419, 126)
         btn_Generar.Name = "btn_Generar"
         btn_Generar.Size = New Size(75, 23)
         btn_Generar.TabIndex = 0
@@ -59,30 +66,31 @@ Partial Class Form1
         ' 
         ' txtResultado
         ' 
-        txtResultado.Location = New Point(385, 54)
+        txtResultado.Location = New Point(257, 126)
         txtResultado.Name = "txtResultado"
-        txtResultado.Size = New Size(75, 23)
+        txtResultado.Size = New Size(156, 23)
         txtResultado.TabIndex = 1
         ' 
         ' txtElementos
         ' 
-        txtElementos.Location = New Point(223, 54)
+        txtElementos.Location = New Point(257, 83)
         txtElementos.Name = "txtElementos"
         txtElementos.Size = New Size(156, 23)
         txtElementos.TabIndex = 2
+        txtElementos.Visible = False
         ' 
         ' Button1
         ' 
-        Button1.Location = New Point(223, 165)
+        Button1.Location = New Point(257, 225)
         Button1.Name = "Button1"
         Button1.Size = New Size(75, 23)
         Button1.TabIndex = 3
-        Button1.Text = "Button1"
+        Button1.Text = "0"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' Button2
         ' 
-        Button2.Location = New Point(223, 194)
+        Button2.Location = New Point(257, 283)
         Button2.Name = "Button2"
         Button2.Size = New Size(75, 23)
         Button2.TabIndex = 4
@@ -91,16 +99,16 @@ Partial Class Form1
         ' 
         ' Button3
         ' 
-        Button3.Location = New Point(223, 223)
+        Button3.Location = New Point(257, 254)
         Button3.Name = "Button3"
         Button3.Size = New Size(75, 23)
         Button3.TabIndex = 5
-        Button3.Text = "Button3"
+        Button3.Text = "0"
         Button3.UseVisualStyleBackColor = True
         ' 
         ' Button4
         ' 
-        Button4.Location = New Point(223, 252)
+        Button4.Location = New Point(257, 312)
         Button4.Name = "Button4"
         Button4.Size = New Size(75, 23)
         Button4.TabIndex = 6
@@ -109,16 +117,17 @@ Partial Class Form1
         ' 
         ' Button5
         ' 
-        Button5.Location = New Point(304, 165)
+        Button5.Location = New Point(338, 225)
         Button5.Name = "Button5"
+        Button5.RightToLeft = RightToLeft.No
         Button5.Size = New Size(75, 23)
         Button5.TabIndex = 7
-        Button5.Text = "Button5"
+        Button5.Text = "0"
         Button5.UseVisualStyleBackColor = True
         ' 
         ' Button6
         ' 
-        Button6.Location = New Point(304, 194)
+        Button6.Location = New Point(338, 283)
         Button6.Name = "Button6"
         Button6.Size = New Size(75, 23)
         Button6.TabIndex = 8
@@ -127,16 +136,16 @@ Partial Class Form1
         ' 
         ' Button7
         ' 
-        Button7.Location = New Point(304, 223)
+        Button7.Location = New Point(338, 254)
         Button7.Name = "Button7"
         Button7.Size = New Size(75, 23)
         Button7.TabIndex = 9
-        Button7.Text = "Button7"
+        Button7.Text = "0"
         Button7.UseVisualStyleBackColor = True
         ' 
         ' Button8
         ' 
-        Button8.Location = New Point(304, 252)
+        Button8.Location = New Point(338, 312)
         Button8.Name = "Button8"
         Button8.Size = New Size(75, 23)
         Button8.TabIndex = 10
@@ -148,14 +157,14 @@ Partial Class Form1
         ' 
         ' TextBox1
         ' 
-        TextBox1.Location = New Point(115, 6)
+        TextBox1.Location = New Point(149, 66)
         TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(37, 23)
+        TextBox1.Size = New Size(96, 23)
         TextBox1.TabIndex = 11
         ' 
         ' btnBorrar
         ' 
-        btnBorrar.Location = New Point(466, 135)
+        btnBorrar.Location = New Point(500, 195)
         btnBorrar.Name = "btnBorrar"
         btnBorrar.Size = New Size(75, 23)
         btnBorrar.TabIndex = 12
@@ -164,7 +173,7 @@ Partial Class Form1
         ' 
         ' txtInput
         ' 
-        txtInput.Location = New Point(223, 136)
+        txtInput.Location = New Point(257, 196)
         txtInput.Name = "txtInput"
         txtInput.Size = New Size(156, 23)
         txtInput.TabIndex = 13
@@ -181,7 +190,7 @@ Partial Class Form1
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(11, 9)
+        Label1.Location = New Point(45, 69)
         Label1.Name = "Label1"
         Label1.Size = New Size(98, 15)
         Label1.TabIndex = 15
@@ -189,21 +198,23 @@ Partial Class Form1
         ' 
         ' res1
         ' 
-        res1.Location = New Point(547, 55)
+        res1.Location = New Point(661, 114)
         res1.Name = "res1"
         res1.Size = New Size(61, 23)
         res1.TabIndex = 16
+        res1.Visible = False
         ' 
         ' res2
         ' 
-        res2.Location = New Point(547, 84)
+        res2.Location = New Point(661, 145)
         res2.Name = "res2"
         res2.Size = New Size(61, 23)
         res2.TabIndex = 17
+        res2.Visible = False
         ' 
         ' btnEnviar
         ' 
-        btnEnviar.Location = New Point(223, 281)
+        btnEnviar.Location = New Point(257, 341)
         btnEnviar.Name = "btnEnviar"
         btnEnviar.Size = New Size(156, 23)
         btnEnviar.TabIndex = 18
@@ -213,7 +224,7 @@ Partial Class Form1
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(229, 5)
+        Label2.Location = New Point(297, 9)
         Label2.Name = "Label2"
         Label2.Size = New Size(197, 15)
         Label2.TabIndex = 19
@@ -221,7 +232,7 @@ Partial Class Form1
         ' 
         ' btnBorrarTodo
         ' 
-        btnBorrarTodo.Location = New Point(385, 165)
+        btnBorrarTodo.Location = New Point(419, 225)
         btnBorrarTodo.Name = "btnBorrarTodo"
         btnBorrarTodo.Size = New Size(156, 23)
         btnBorrarTodo.TabIndex = 20
@@ -230,16 +241,87 @@ Partial Class Form1
         ' 
         ' txtUserResult
         ' 
-        txtUserResult.Location = New Point(385, 136)
+        txtUserResult.Location = New Point(419, 196)
         txtUserResult.Name = "txtUserResult"
         txtUserResult.Size = New Size(75, 23)
         txtUserResult.TabIndex = 21
+        ' 
+        ' Button9
+        ' 
+        Button9.Location = New Point(612, 306)
+        Button9.Name = "Button9"
+        Button9.Size = New Size(75, 23)
+        Button9.TabIndex = 22
+        Button9.Text = "Button9"
+        Button9.UseVisualStyleBackColor = True
+        Button9.Visible = False
+        ' 
+        ' Label3
+        ' 
+        Label3.AutoSize = True
+        Label3.Location = New Point(45, 130)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(200, 15)
+        Label3.TabIndex = 23
+        Label3.Text = "Que Operacion da como resultado ="
+        ' 
+        ' btnResolver
+        ' 
+        btnResolver.Location = New Point(500, 126)
+        btnResolver.Name = "btnResolver"
+        btnResolver.Size = New Size(75, 23)
+        btnResolver.TabIndex = 24
+        btnResolver.Text = "Resolver"
+        btnResolver.UseVisualStyleBackColor = True
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Location = New Point(579, 69)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(62, 15)
+        Label4.TabIndex = 25
+        Label4.Text = "Resueltas :"
+        ' 
+        ' txtContador
+        ' 
+        txtContador.Location = New Point(661, 65)
+        txtContador.Name = "txtContador"
+        txtContador.Size = New Size(61, 23)
+        txtContador.TabIndex = 26
+        ' 
+        ' Label5
+        ' 
+        Label5.AutoSize = True
+        Label5.ForeColor = SystemColors.ControlDark
+        Label5.Location = New Point(7, 9)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(136, 15)
+        Label5.TabIndex = 27
+        Label5.Text = "Nombre: Carlos Sanchez"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.ForeColor = SystemColors.ControlDark
+        Label6.Location = New Point(7, 24)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(108, 15)
+        Label6.TabIndex = 28
+        Label6.Text = "Cedula: 8-979-2162"
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
+        Controls.Add(Label6)
+        Controls.Add(Label5)
+        Controls.Add(txtContador)
+        Controls.Add(Label4)
+        Controls.Add(btnResolver)
+        Controls.Add(Label3)
+        Controls.Add(Button9)
         Controls.Add(txtUserResult)
         Controls.Add(btnBorrarTodo)
         Controls.Add(Label2)
@@ -291,4 +373,11 @@ Partial Class Form1
     Friend WithEvents Label2 As Label
     Friend WithEvents btnBorrarTodo As Button
     Friend WithEvents txtUserResult As TextBox
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents btnResolver As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtContador As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class

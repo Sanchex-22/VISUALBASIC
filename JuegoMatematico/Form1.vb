@@ -1,16 +1,14 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+﻿Imports System.Runtime.InteropServices
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar
 
 Public Class Form1
-    Dim segundosRestantes As Integer = 60 ' Inicializar con 60 segundos
+    Dim segundosRestantes As Integer = 60
     Dim resultado As Double
-    'Dim resultado_user As Double
     Dim elementosGenerados As String
-    ' Dim botones() As Button = {Button1, Button2, Button3, Button4, Button5, Button6, Button7, Button8}
     Dim operadores() As String = {"+", "-", "*", "/"}
-    'Dim datos() As String
     Dim valores As New List(Of String)
-    'Dim datos As New List(Of String)()
+    Dim i As New Integer
 
     Public Sub New()
         InitializeComponent()
@@ -51,12 +49,11 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Configurar el intervalo del temporizador (1000 ms = 1 segundo)
         Timer1.Interval = 1000
     End Sub
 
     Private Sub btnGenerar_Click(sender As Object, e As EventArgs) Handles btn_Generar.Click
-        Timer1.Start()
+        Timer1.Enabled = True
         Comenzar()
         btn_Generar.Enabled = False
     End Sub
@@ -74,7 +71,6 @@ Public Class Form1
 
     'funcion para que empieze el juego
     Public Sub Comenzar()
-        ' Crear un arreglo para almacenar números y operadores intercalados
         Dim elementos(7) As Object
         Dim generadorAleatorio As New Random()
 
@@ -85,11 +81,9 @@ Public Class Form1
             elementos(i * 2 + 1) = operadores(generadorAleatorio.Next(0, operadores.Length))
         Next
 
-        ' Mostrar los números y operadores en un cuadro de texto o en la consola
         elementosGenerados = String.Join(" ", elementos.Take(7))
         txtElementos.Text = elementosGenerados
 
-        ' Llenar los botones con datos generados
         Button1.Text = elementos(0)
         Button3.Text = elementos(2)
         Button5.Text = elementos(4)
@@ -119,9 +113,9 @@ Public Class Form1
 
 
         ' Realizar la operación en el orden especificado
-        Dim resultado1 As Double
-        Dim resultado2 As Double
-        Dim resultadoma As Double
+        Dim resultado1 As Single
+        Dim resultado2 As Single
+        Dim resultadoma As Single
 
         resultado1 = Calculo(num1, num2, operador1)
         res1.Text = resultado1.ToString()
@@ -132,8 +126,8 @@ Public Class Form1
         Return resultadoma
     End Function
 
-    Public Function Calculo(num1 As Double, num2 As Double, operador As String)
-        Dim resultado As Double
+    Public Function Calculo(num1 As Single, num2 As Single, operador As String)
+        Dim resultado As Single
         If operador = "/" Then
             resultado = num1 / num2
             Return resultado
@@ -163,18 +157,26 @@ Public Class Form1
         If segundosRestantes = 0 Then
             ' El tiempo ha terminado, puedes tomar acciones aquí
             Timer1.Stop() ' Detener el temporizador si es necesario
-            MessageBox.Show("¡Tiempo agotado!")
+            Limpiar()
+            txtElementos.Clear()
+            MessageBox.Show("¡Tiempo agotado!, Haz Perdido")
         End If
     End Sub
 
     Private Sub Actualizar()
-        txtInput.Text = String.Join(", ", valores)
+        txtInput.Text = String.Join("", valores)
     End Sub
 
     Private Sub btnSiguiente_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
-        segundosRestantes = segundosRestantes + 60
+        Timer1.Enabled = True
+        i = i + 1
+        txtContador.Text = i
+        'segundosRestantes = segundosRestantes + 40
         Comenzar()
-        btnSiguiente.Enabled = True
+        Limpiar()
+        btnSiguiente.Enabled = False
+        btnEnviar.Enabled = True
+        btnResolver.Enabled = True
     End Sub
 
 
@@ -185,7 +187,7 @@ Public Class Form1
             'MessageBox.Show(valores.Count)
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -201,7 +203,7 @@ Public Class Form1
             'MessageBox.Show(valores.Count)
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -214,7 +216,7 @@ Public Class Form1
         If valores.Count < 7 Then
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -227,7 +229,7 @@ Public Class Form1
         If valores.Count < 7 Then
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -240,7 +242,7 @@ Public Class Form1
         If valores.Count < 7 Then
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -253,7 +255,7 @@ Public Class Form1
         If valores.Count < 7 Then
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -266,7 +268,7 @@ Public Class Form1
         If valores.Count < 7 Then
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -279,7 +281,7 @@ Public Class Form1
         If valores.Count < 7 Then
             valores.Add(valorDelBoton)
             ' Puedes realizar acciones adicionales si lo deseas, como mostrar los valores en un TextBox
-            txtInput.Text = String.Join(", ", valores)
+            txtInput.Text = String.Concat(valores)
             Actualizar()
             ActiveDisablebtn(valorDelBoton)
         Else
@@ -326,10 +328,11 @@ Public Class Form1
     End Sub
 
     Private Sub btnEnviar_Click(sender As Object, e As EventArgs) Handles btnEnviar.Click
+
         If valores.Count > 6 Then
+            Timer1.Enabled = False
             Comparar()
         Else
-            MessageBox.Show(valores.Count)
             MessageBox.Show("Ingrese todos los valores")
         End If
     End Sub
@@ -340,7 +343,9 @@ Public Class Form1
         Dim resultado_user = CalcularResultado(array)
         txtUserResult.Text = resultado_user
         If resultado = resultado_user Then
+            segundosRestantes = segundosRestantes + 40
             btnSiguiente.Enabled = True
+            Timer1.Enabled = False
             MessageBox.Show("Resultado Correcto (Presione Siguiente)")
         Else
             MessageBox.Show("Resultado erroneo Intente Denuevo")
@@ -349,6 +354,23 @@ Public Class Form1
 
 
     Public Function Limpiar()
-
+        valores.Clear()
+        txtInput.Clear()
+        txtUserResult.Clear()
     End Function
+
+    Private Sub Button9_Click_1(sender As Object, e As EventArgs) Handles Button9.Click
+        Limpiar()
+    End Sub
+
+    Private Sub btnResolver_Click(sender As Object, e As EventArgs) Handles btnResolver.Click
+        btnOffOp()
+        btnOffNum()
+        btnResolver.Enabled = False
+        Timer1.Enabled = False
+        btnSiguiente.Enabled = True
+        btnEnviar.Enabled = False
+        txtInput.Text = txtElementos.Text
+    End Sub
+
 End Class
